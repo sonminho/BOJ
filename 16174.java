@@ -19,7 +19,7 @@ public class Main {
 		d[1][1] = true;
 		
 		for(int i = 1; i <= n; i++) {
-			for(int j = 1; j <= n; j++) {
+			for(int j = 1; j <= n; j++) { 
 				if(d[i][j] && a[i][j] > 0) {
 					if(j+a[i][j] <= n) {
 						d[i][a[i][j] + j] = true;
