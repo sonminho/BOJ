@@ -12,7 +12,7 @@ public class Main {
 	static void quickSort(int[] a, int left, int right) {
 		int pl = left;
 		int pr = right;
-		int x = a[(pl+pr)/2]; // �ǹ�
+		int x = a[(pl+pr)/2]; // ÇÇ¹þ
 		
 		do {
 			while(a[pl] < x)
