@@ -62,7 +62,7 @@ public class Main {
     	for(Person p : people) {
     		sb.append(p.age + " " + p.name + "\n");
     	}
-    	
+    	 
     	System.out.println(sb);
     }
 }
