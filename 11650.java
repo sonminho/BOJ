@@ -60,6 +60,6 @@ public class Main {
     		sb.append(nodes[i].x + " " + nodes[i].y + "\n");
     	}
     	
-    	System.out.println(sb);
+    	System.out.println(sb); 
     }
 }
