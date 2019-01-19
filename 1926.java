@@ -38,6 +38,7 @@ class Main {
 		int m = Integer.parseInt(stk.nextToken());
 		check = new boolean[n][m];
 		int[][] a = new int[n][m];
+		
 		List<Integer> partySizeList = new ArrayList<>();
 		int partiesCount = 0;
 
