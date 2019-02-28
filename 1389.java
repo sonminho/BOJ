@@ -5,15 +5,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-/*
-5 5
-1 3
-1 4
-4 5
-4 3
-3 2
-*/
-
 class Main {
 	static class Node {
 		int no;
