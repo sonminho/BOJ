@@ -11,11 +11,11 @@ import java.util.StringTokenizer;
 class Main {
 	static int x, y, d;
 	static int[][] a;
-	static int[][] t;
+	static int[][] t, s;
 	static int[][] board;
 	static boolean[][] c;
-	static int[] dx = { 0, 0, -1, 1 };
-	static int[] dy = { -1, 1, 0, 0 };
+	static int[] dx = { 0, 0, -1};
+	static int[] dy = { -1, 1, 0};
 
 	static class Node {
 		int x;
@@ -37,7 +37,7 @@ class Main {
 			int ncost = node.cost;
 			c[nx][ny] = true;
 
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 3; i++) {
 				int newX = nx + dx[i];
 				int newY = ny + dy[i];
 
@@ -155,9 +155,9 @@ class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer stk = new StringTokenizer(br.readLine());
-		x = Integer.parseInt(stk.nextToken()); // Çà
-		y = Integer.parseInt(stk.nextToken()); // ¿­
-		d = Integer.parseInt(stk.nextToken()); // »çÁ¤°Å¸®
+		x = Integer.parseInt(stk.nextToken()); // í–‰
+		y = Integer.parseInt(stk.nextToken()); // ì—´
+		d = Integer.parseInt(stk.nextToken()); // ì‚¬ì •ê±°ë¦¬
 
 		a = new int[x + 1][y];
 		c = new boolean[x + 1][y];
@@ -178,14 +178,17 @@ class Main {
 		a[x][y - 3] = 1;
 
 		ArrayList<Integer> ansList = new ArrayList<Integer>();
-
-		while(nextP(a[x])) {
+		
+		do {
 			int ans = 0;
 			copy();
-			for (int m = 0; m < x; m++) { // Àû±ºÀÌ ³»·Á¿À´Â È½¼ö
+			
+			for (int m = 0; m < x; m++) { // ì êµ°ì´ ë‚´ë ¤ì˜¤ëŠ” íšŸìˆ˜
 				ArrayList<Node> removeList = new ArrayList<>();
-				for (int i = 0; i < y; i++) { // ±Ã¼ö 3¸íÀÌ ¹ß»ç
-					if (a[x][i] == 1) { // ±Ã¼ö
+				s = new int[x][y];
+				
+				for (int i = 0; i < y; i++) { // ê¶ìˆ˜ 3ëª…ì´ ë°œì‚¬
+					if (a[x][i] == 1) { // ê¶ìˆ˜
 						c = new boolean[x + 1][y];
 						board = new int[x][y];
 
@@ -197,19 +200,27 @@ class Main {
 						
 						if (list.size() > 0) {
 							Node node = list.get(0);
-							a[node.x][node.y] = 0;
 							removeList.add(new Node(node.x, node.y, 0));
-							ans++;
+														
+							for(Node rnode : removeList) {
+								s[rnode.x][rnode.y] = 1; 
+							}
 						}
 					}
 				}
-				for (Node node : removeList) { // Àû±º Á¦°Å
-					a[node.x][node.y] = 0;
+				
+				for(int w = 0; w < x; w++) {
+					for(int z = 0; z < y; z++) {
+						if(s[w][z] == 1) {
+							ans++;
+							a[w][z] = 0;
+						}
+					}
 				}
-				move(); // Àû±º ÇÏ°­
+				move(); // ì êµ° í•˜ê°•
 			}
 			ansList.add(ans);
-		}
+		} while(nextP(a[x]));
 		
 		Collections.sort(ansList);
 		System.out.println(ansList.get(ansList.size()-1));
