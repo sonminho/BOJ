@@ -7,16 +7,6 @@ import java.util.Iterator;
 import java.util.StringTokenizer;
 
 public class Main {
-	static class Node {
-		int x;
-		int y;
-
-		Node(int x, int y) {
-			this.x = x;
-			this.y = y;
-		}
-	}
-
 	static int n, m;
 	static boolean[] c;
 	static boolean[][] a;
