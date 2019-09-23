@@ -71,7 +71,7 @@ public class Main {
 			String inLine = br.readLine();
 			inputList.add(inLine);
 			StringTokenizer stk = new StringTokenizer(inLine);
-
+ 
 			int p = Integer.parseInt(stk.nextToken());
 			int l = Integer.parseInt(stk.nextToken());
 			int r = Integer.parseInt(stk.nextToken());
