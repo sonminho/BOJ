@@ -24,7 +24,6 @@ class Main {
 	static int[][] map;
 	static List<Node> mList = new ArrayList<>();
 	static List<Node> rList;
-	static Node[] mArr;
 	static boolean[] mVisited;
 	static int[] dx = { 0, 0, -1, 1 };
 	static int[] dy = { -1, 1, 0, 0 };
@@ -162,8 +161,6 @@ class Main {
 			}
 		}
 
-		mArr = new Node[mList.size()];
-		mList.toArray(mArr);
 		mVisited = new boolean[mList.size()];
 
 		dfs(0, 0);
