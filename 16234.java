@@ -1,5 +1,3 @@
-package algo;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,10 +12,9 @@ class Main {
 	static class Node {
 		int x, y, dist;
 
-		Node(int x, int y, int dist) {
+		Node(int x, int y) {
 			this.x = x;
 			this.y = y;
-			this.dist = dist;
 		}
 	}
 	
@@ -56,8 +53,8 @@ class Main {
 					int diff = Math.abs(now - next);
 
 					if (diff >= l && diff <= r) {
-						q.add(new Node(nx, ny, cur.dist));
-						visited[nx][ny] = cur.dist;
+						q.add(new Node(nx, ny));
+						visited[nx][ny] = 1;
 						cnt++;
 						sum += map[nx][ny];
 						arrList.add(new int[] {nx, ny});
@@ -90,7 +87,6 @@ class Main {
 		}
 
 		while(true) {
-			int no = 1;
 			q = new LinkedList<>();
 			boolean updated = false;
 			
@@ -100,11 +96,10 @@ class Main {
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
 					if (visited[i][j] == 0) {
-						q.add(new Node(i, j, no));
-						visited[i][j] = no;
+						q.add(new Node(i, j));
+						visited[i][j] = 1;
 						if(bfs() > 1)
 							updated = true;
-						no++;
 					}
 				}
 			}
