@@ -12,7 +12,6 @@ public class Main {
 				for(int k = 0; k < ret[0].length; k++) {
 					ret[i][j] += a[i][k]*b[k][j];					
 				}
-				ret[i][j] %= 1000000;
 			}
 		}
 		
